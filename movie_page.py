@@ -7,6 +7,7 @@ page_layout = """
   <head>
     <meta charset="utf-8">
     <title>Rob's movies</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="header"></div>
@@ -36,6 +37,10 @@ def makeTiles(movies):
     return movie_tiles
 
 def makePage(movies):
+    initial_working_dir = os.getcwd()
+    project_folder = os.path.dirname(__file__)
+    os.chdir(project_folder)
+
     movie_webpage_file = open("movie_webpage.html", "w")
 
     composed_page = page_layout.format(movie_tiles = makeTiles(movies))
@@ -45,3 +50,5 @@ def makePage(movies):
 
     url = os.path.abspath(movie_webpage_file.name)
     webbrowser.open("file://"+url)
+
+    chdir(initial_working_dir)

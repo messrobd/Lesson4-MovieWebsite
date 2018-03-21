@@ -1,4 +1,5 @@
 import media
+import os
 
 test_movie = media.Movie("title", "storyline", "poster", "trailer")
 
@@ -14,3 +15,5 @@ assert test_html.format(
     ) == """<a href="trailer" target="_blank">"""
 
 print "ran all tests"
+
+print os.path.dirname(__file__)
