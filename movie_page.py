@@ -27,12 +27,11 @@ movie_tile = """
 def makeTiles(movies):
     movie_tiles = ""
     for movie in movies:
-        movie_tile.format(
+        movie_tiles += movie_tile.format(
         trailer_youtube_url = movie.trailer_youtube_url,
         poster_image_url = movie.poster_image_url,
-        movie_title = movie.movie_title
+        movie_title = movie.title
         )
-        movie_tiles += movie_tile
 
     return movie_tiles
 
