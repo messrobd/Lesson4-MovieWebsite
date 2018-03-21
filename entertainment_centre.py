@@ -1,5 +1,5 @@
 import media
-import fresh_tomatoes
+import movie_page
 
 dredd = media.Movie("Dredd",
                     "Police officer destroys criminals",
@@ -13,7 +13,4 @@ withnail = media.Movie("Withnail and I",
 
 movies = [dredd, withnail]
 
-#fresh_tomatoes.open_movies_page(movies)
-
-print __name__ #appears to name the target scope, in this case __main__, ie the script itself
-print dredd.__module__ #appears to name the module in which the class (or it's __init__ func?) is defined
+movie_page.makePage(movies)
