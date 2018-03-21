@@ -18,9 +18,11 @@ page_layout = """
 
 movie_tile = """
 <div class="movie-tile">
-    <a href="{trailer_youtube_url}" target="_blank">
-        <img class="movie-image" src="{poster_image_url}">
-    </a>
+    <div class="image-section">
+        <a href="{trailer_youtube_url}" target="_blank">
+            <img class="movie-image" src="{poster_image_url}">
+        </a>
+        <p class="attribution">{poster_image_attribution}</p>
     <h2>{movie_title}</h2>
 </div>
 """
@@ -31,6 +33,7 @@ def makeTiles(movies):
         movie_tiles += movie_tile.format(
         trailer_youtube_url = movie.trailer_youtube_url,
         poster_image_url = movie.poster_image_url,
+        poster_image_attribution = movie.poster_image_attribution,
         movie_title = movie.title
         )
 
