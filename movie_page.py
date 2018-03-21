@@ -51,4 +51,4 @@ def makePage(movies):
     url = os.path.abspath(movie_webpage_file.name)
     webbrowser.open("file://"+url)
 
-    chdir(initial_working_dir)
+    os.chdir(initial_working_dir)
