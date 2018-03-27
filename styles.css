@@ -1,16 +1,30 @@
 body {
+  margin: 0;
+  padding-left: 48px;
   font-family: gill sans, sans-serif;
+  background-color: whitesmoke;
+}
+.header {
+  position: fixed;
+  min-width: 100%;
+  padding-top: 48px;
+  background-color: inherit;
 }
 .movie-list {
+  padding-top: 132px;
   display: flex;
   flex-flow: wrap;
   justify-content: space-around;
+  background-color: white;
 }
 .movie-tile {
   display: grid;
   grid-template-columns: 300px 12px;
   grid-template-rows: auto auto;
-  height: fit-content; 
+  height: fit-content;
+  padding: 8px;
+  margin: 20px;
+  box-shadow: 2px 2px 12px grey;
 }
 .movie-image {
   display: block;
@@ -31,5 +45,6 @@ body {
 }
 .title-container {
   grid-column: 1/ span 2;
+  padding: 8px 0 4px; 
   margin: 0;
 }
