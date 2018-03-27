@@ -11,7 +11,7 @@ page_layout = """
   </head>
   <body>
     <div class="header">
-        <h1>Rob's movies</h1> 
+        <h1>Rob's movies</h1>
     </div>
     <div class="movie-list">{movie_tiles}</div>
   </body>
@@ -33,6 +33,15 @@ movie_tile = """
 """
 
 def makeTiles(movies):
+    """
+    1. behaviour: produces a tailored html fragment for each movie in a list
+    2. input:
+       i. a list containing instances of the movie class
+       ii. an html fragment as a string defining the structure of the movie
+       element, in which variables stand in for movie properties to be populated
+    3. output: html as a string, subsituting movie instance properties for
+    variables in the input string
+    """
     movie_tiles = ""
     for movie in movies:
         movie_tiles += movie_tile.format(
@@ -45,6 +54,16 @@ def makeTiles(movies):
     return movie_tiles
 
 def makePage(movies):
+    """
+    1. behaviour: creates and opens an html file incorporating a set of movie
+    elements
+    2. inputs:
+       i. a list containing instances of the movie class
+       ii. an html fragment as a string defining the structure of the web page,
+       in which a variable stands in for the movie list html to be substituted
+    3. outputs: an html file substituting movie list html elements into the
+    input html string 
+    """
     initial_working_dir = os.getcwd()
     project_folder = os.path.dirname(__file__)
     os.chdir(project_folder)
