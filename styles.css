@@ -1,10 +1,16 @@
 body {
   font-family: gill sans, sans-serif;
 }
+.movie-list {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+}
 .movie-tile {
   display: grid;
   grid-template-columns: 300px 12px;
   grid-template-rows: auto auto;
+  height: fit-content; 
 }
 .movie-image {
   display: block;
