@@ -7,6 +7,3 @@ class Movie():
         self.poster_image_url = poster_image
         self.poster_image_attribution = poster_attribution
         self.trailer_youtube_url = trailer_url
-
-    def showTrailer(self):
-        webbrowser.open(self.trailer_youtube_url)
