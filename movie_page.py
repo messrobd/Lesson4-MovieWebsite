@@ -18,17 +18,15 @@ page_layout = """
 
 movie_tile = """
 <div class="movie-tile">
-    <div class="image-section">
-        <div class="image-container">
-            <a href="{trailer_youtube_url}" target="_blank">
-                <img class="movie-image" src="{poster_image_url}">
-            </a>
-        </div>
-        <div class="attribution">
-            <p class="attribution-text">{poster_image_attribution}</p>
-        </div>
+    <div class="image-container">
+        <a href="{trailer_youtube_url}" target="_blank">
+            <img class="movie-image" src="{poster_image_url}">
+        </a>
     </div>
-    <h2>{movie_title}</h2>
+    <div class="attribution">
+        <p class="attribution-text">{poster_image_attribution}</p>
+    </div>
+    <h2 class="title-container">{movie_title}</h2>
 </div>
 """
 

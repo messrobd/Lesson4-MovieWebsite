@@ -1,9 +1,10 @@
 body {
   font-family: gill sans, sans-serif;
 }
-.image-section {
+.movie-tile {
   display: grid;
   grid-template-columns: 300px 12px;
+  grid-template-rows: auto auto;
 }
 .movie-image {
   display: block;
@@ -21,4 +22,8 @@ body {
   white-space: nowrap;
   font-size: 10px;
   filter: opacity(40%);
+}
+.title-container {
+  grid-column: 1/ span 2;
+  margin: 0;
 }
