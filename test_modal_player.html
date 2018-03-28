@@ -28,16 +28,6 @@
         width: 300px;
       }
     </style>
-    <script>
-      function invokePlayer(url){
-        document.getElementById('player').src = url
-        document.getElementById('modal').style.display = 'flex'
-      }
-      function dismissPlayer(){
-        document.getElementById('modal').style.display = 'none'
-        document.getElementById('player').src = ''
-      }
-    </script>
   </head>
   <body>
     <div class="player-invoke">
@@ -56,5 +46,18 @@
       </div>
     </div>
 
+    <script>
+      var modalElement = document.getElementById('modal');
+      var playerElement = document.getElementById('player');
+
+      function invokePlayer(url){
+        playerElement.src = url
+        modalElement.style.display = 'flex'
+      }
+      function dismissPlayer(){
+        modalElement.style.display = 'none'
+        playerElement.src = ''
+      }
+    </script>
   </body>
 </html>
