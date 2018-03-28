@@ -35,10 +35,8 @@
     </style>
   </head>
   <body>
-    <div class="player-invoke">
-      <a href=#player onclick="invokePlayer('https://www.youtube.com/embed/qVIba2N6MTA')">
-        <img class="movie-image" src="https://upload.wikimedia.org/wikipedia/en/1/16/Dredd2012Poster.jpg">
-      </a>
+    <div id="invokePlayerControl">
+      <img class="movie-image" src="https://upload.wikimedia.org/wikipedia/en/1/16/Dredd2012Poster.jpg">
     </div>
     <div id="modal">
       <div id="player-container">
@@ -55,6 +53,7 @@
       var modalElement = document.getElementById('modal');
       var playerElement = document.getElementById('player');
 
+      var invokePlayerControl = document.getElementById('invokePlayerControl');
       var dismissPlayerControl = document.getElementById('dismissPlayerControl');
 
       function invokePlayer(url){
@@ -66,6 +65,7 @@
         playerElement.src = ''
       }
 
+      invokePlayerControl.onclick = function(){invokePlayer('https://www.youtube.com/embed/qVIba2N6MTA')}
       dismissPlayerControl.onclick = dismissPlayer;
     </script>
   </body>
