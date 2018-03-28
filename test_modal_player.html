@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+      #player {
+        display: none;
+      }
+      .movie-image {
+        width: 300px; 
+      }
+    </style>
   </head>
   <body>
-    <div class="player">
+    <div class="player-invoke">
+        <a href=#player onclick="document.getElementById('player').style.display = 'block'">
+            <img class="movie-image" src="https://upload.wikimedia.org/wikipedia/en/1/16/Dredd2012Poster.jpg">
+        </a>
+    </div>
+    <div id="player">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/qVIba2N6MTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
