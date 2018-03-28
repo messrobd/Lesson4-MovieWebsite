@@ -4,8 +4,25 @@
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
-      #player-container {
+      #modal {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        padding-top: 200px;
+        background-color: rgba(0,0,0,0.6);
+        justify-content: center;
+      }
+      #player-container {
+        height: fit-content;
+        background-color: rgba(0,0,0,0.8);
+      }
+      #close-player {
+        font-variant: small-caps;
+        color: white;
       }
       .movie-image {
         width: 300px;
@@ -14,10 +31,10 @@
     <script>
       function invokePlayer(url){
         document.getElementById('player').src = url
-        document.getElementById('player-container').style.display = 'block'
+        document.getElementById('modal').style.display = 'flex'
       }
       function dismissPlayer(){
-        document.getElementById('player-container').style.display = 'none'
+        document.getElementById('modal').style.display = 'none'
         document.getElementById('player').src = ''
       }
     </script>
@@ -28,12 +45,14 @@
         <img class="movie-image" src="https://upload.wikimedia.org/wikipedia/en/1/16/Dredd2012Poster.jpg">
       </a>
     </div>
-    <div id="player-container">
-      <div>
-        <iframe id="player" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
-      <div class="close-player">
-        <a href=#player onclick="dismissPlayer()">Close</a>
+    <div id="modal">
+      <div id="player-container">
+        <div>
+          <iframe id="player" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div>
+          <a id="close-player" href=#player onclick="dismissPlayer()">Close</a>
+        </div>
       </div>
     </div>
 
