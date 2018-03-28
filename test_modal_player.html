@@ -20,9 +20,14 @@
         height: fit-content;
         background-color: rgba(0,0,0,0.8);
       }
-      #close-player {
-        font-variant: small-caps;
+      #dismissPlayerControl {
         color: white;
+        float: right;
+      }
+      #dismissPlayerControl:hover,
+      #dismissPlayerControl:focus {
+        color: lightgrey;
+        cursor: pointer;
       }
       .movie-image {
         width: 300px;
@@ -38,10 +43,10 @@
     <div id="modal">
       <div id="player-container">
         <div>
-          <iframe id="player" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <span id="dismissPlayerControl">&times;</a>
         </div>
         <div>
-          <a id="close-player" href=#player onclick="dismissPlayer()">Close</a>
+          <iframe id="player" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -49,6 +54,8 @@
     <script>
       var modalElement = document.getElementById('modal');
       var playerElement = document.getElementById('player');
+
+      var dismissPlayerControl = document.getElementById('dismissPlayerControl');
 
       function invokePlayer(url){
         playerElement.src = url
@@ -58,6 +65,8 @@
         modalElement.style.display = 'none'
         playerElement.src = ''
       }
+
+      dismissPlayerControl.onclick = dismissPlayer;
     </script>
   </body>
 </html>
