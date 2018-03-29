@@ -35,8 +35,11 @@
     </style>
   </head>
   <body>
-    <div id="invokePlayerControl">
+    <div id="dredd" class="movie-tile">
       <img class="movie-image" src="https://upload.wikimedia.org/wikipedia/en/1/16/Dredd2012Poster.jpg">
+    </div>
+    <div id="aliens" class="movie-tile">
+      <img class="movie-image" src="https://upload.wikimedia.org/wikipedia/en/f/fb/Aliens_poster.jpg">
     </div>
     <div id="modal">
       <div id="player-container">
@@ -53,9 +56,6 @@
       var modalElement = document.getElementById('modal');
       var playerElement = document.getElementById('player');
 
-      var invokePlayerControl = document.getElementById('invokePlayerControl');
-      var dismissPlayerControl = document.getElementById('dismissPlayerControl');
-
       function invokePlayer(url){
         playerElement.src = url
         modalElement.style.display = 'flex'
@@ -65,7 +65,22 @@
         playerElement.src = ''
       }
 
-      invokePlayerControl.onclick = function(){invokePlayer('https://www.youtube.com/embed/qVIba2N6MTA')}
+      var trailerDict = {
+        dredd:'https://www.youtube.com/embed/qVIba2N6MTA',
+        aliens:'https://www.youtube.com/embed/XKSQmYUaIyE'
+      };
+
+      var movie;
+
+      for (movie in trailerDict) {
+        console.log(movie);
+        var movieTile = document.getElementById(movie);
+        var trailerURL = trailerDict[movie];
+        console.log(trailerURL);
+        movieTile.onclick = function(){invokePlayer(trailerURL)}
+      }
+
+      var dismissPlayerControl = document.getElementById('dismissPlayerControl');
       dismissPlayerControl.onclick = dismissPlayer;
     </script>
   </body>
