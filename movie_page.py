@@ -92,11 +92,23 @@ def makeTiles(movies):
 
     return movie_tiles
 
+def makeEmbedURL(trailer_youtube_url):
+    parts_to_keep = trailer_youtube_url.split("watch?v=")
+
+    youtube_base_url_index = 0
+    youtube_video_id_index = 1
+
+    embed_url = "{0}embed/{1}".format(
+        parts_to_keep[youtube_base_url_index],
+        parts_to_keep[youtube_video_id_index])
+
+    return embed_url
+
 def makeScript(movies):
     trailerDict = {}
     for movie in movies:
         movieID = movie.title
-        trailerURL = movie.trailer_youtube_url
+        trailerURL = makeEmbedURL(movie.trailer_youtube_url)
         trailerDict[movieID] = trailerURL
 
     return script.format(trailerDict = str(trailerDict))
