@@ -56,8 +56,8 @@
       var modalElement = document.getElementById('modal');
       var playerElement = document.getElementById('player');
 
-      function invokePlayer(url){
-        playerElement.src = url
+      function invokePlayer(trailerURL){
+        playerElement.src = trailerURL
         modalElement.style.display = 'flex'
       }
       function dismissPlayer(){
@@ -65,23 +65,26 @@
         playerElement.src = ''
       }
 
+      function makeInvokeHandler(trailerURL) {
+        return function () {
+          invokePlayer(trailerURL);
+        }
+      }
+
       var trailerDict = {
         dredd:'https://www.youtube.com/embed/qVIba2N6MTA',
         aliens:'https://www.youtube.com/embed/XKSQmYUaIyE'
       };
 
-      var movie;
-
-      for (movie in trailerDict) {
-        console.log(movie);
+      for (var movie in trailerDict) {
         var movieTile = document.getElementById(movie);
         var trailerURL = trailerDict[movie];
-        console.log(trailerURL);
-        movieTile.onclick = function(){invokePlayer(trailerURL)}
+        movieTile.onclick = makeInvokeHandler(trailerURL);
       }
 
       var dismissPlayerControl = document.getElementById('dismissPlayerControl');
       dismissPlayerControl.onclick = dismissPlayer;
+      
     </script>
   </body>
 </html>
