@@ -1,6 +1,13 @@
 import webbrowser
 import os
 
+"""
+references:
+* homebrew modal dialog code courtesy of w3schools.com
+* embedded video guidance from tutorialrepublic.com
+* copious assistance w3schools and stackoverflow to get my javascript to work
+"""
+
 page_layout = """
 <!DOCTYPE html>
 <html>
@@ -93,6 +100,11 @@ def makeTiles(movies):
     return movie_tiles
 
 def makeEmbedURL(trailer_youtube_url):
+    """
+    1. behaviour: converts a youtube "watch" url into a youtube "embed" url
+    2. input: a youtube "watch" url
+    3. output: a youtube "embed" url
+    """
     parts_to_keep = trailer_youtube_url.split("watch?v=")
 
     youtube_base_url_index = 0
@@ -100,11 +112,23 @@ def makeEmbedURL(trailer_youtube_url):
 
     embed_url = "{0}embed/{1}".format(
         parts_to_keep[youtube_base_url_index],
-        parts_to_keep[youtube_video_id_index])
+        parts_to_keep[youtube_video_id_index]
+        )
 
     return embed_url
 
 def makeScript(movies):
+    """
+    1. behaviour: generates a javascript component to control a modal player
+    element on the page
+    2. inputs:
+       i. a list containing instances of the movie class
+       ii. a javascript fragment as a string, in which a variable stands in for
+       the dictionary of trailer url's to be substituted
+    3. output: javascript as a string. the javascript sets up event handlers for
+    each movie tile element, such that it will invoke a modal youtube player
+    dialog for the associated trailer video
+    """
     trailerDict = {}
     for movie in movies:
         movieID = movie.title
@@ -112,7 +136,6 @@ def makeScript(movies):
         trailerDict[movieID] = trailerURL
 
     return script.format(trailerDict = str(trailerDict))
-    #print str(trailerDict)
 
 def makePage(movies):
     """
@@ -122,8 +145,9 @@ def makePage(movies):
        i. a list containing instances of the movie class
        ii. an html fragment as a string defining the structure of the web page,
        in which a variable stands in for the movie list html to be substituted
-    3. outputs: an html file substituting movie list html elements into the
-    input html string
+       iii. a javascript fragment to control a modal player element on the page
+    3. outputs: an html file substituting movie list html and script elements
+    into the input html string
     """
     initial_working_dir = os.getcwd()
     project_folder = os.path.dirname(__file__)
