@@ -17,7 +17,7 @@ aliens = media.Movie("Aliens",
                     "Hideous creature kills everyone",
                     "https://upload.wikimedia.org/wikipedia/en/f/fb/Aliens_poster.jpg",
                     """<a href="https://en.wikipedia.org/w/index.php?curid=897538">Link</a>""",
-                    "https://www.youtube.com/watch?v=XKSQmYUaIyE")
+                    "https://www.youtube.com/watch?v=gUsuFgZ6lJI")
 
 lotr = media.Movie("Lord of the Rings",
                     "Little guy destroys evil wizard",
